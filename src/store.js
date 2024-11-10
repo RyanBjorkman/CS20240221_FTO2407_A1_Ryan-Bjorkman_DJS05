@@ -24,3 +24,9 @@ const store = {
         this.subscribers.forEach(subscriber => subscriber());
     }
 };
+
+function logState() {
+    console.log('Current state:', store.getState());
+}
+
+store.subscribe(logState);
