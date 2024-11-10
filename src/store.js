@@ -30,3 +30,17 @@ function logState() {
 }
 
 store.subscribe(logState);
+
+
+console.log('Scenario 1: Initial State Verification');
+console.log(store.getState()); // Should log { count: 0 }
+
+console.log('Scenario 2: Incrementing the Counter');
+store.dispatch({ type: 'ADD' });
+store.dispatch({ type: 'ADD' });
+
+console.log('Scenario 3: Decrementing the Counter');
+store.dispatch({ type: 'SUBTRACT' });
+
+console.log('Scenario 4: Resetting the Counter');
+store.dispatch({ type: 'RESET' });
