@@ -44,3 +44,31 @@ store.dispatch({ type: 'SUBTRACT' });
 
 console.log('Scenario 4: Resetting the Counter');
 store.dispatch({ type: 'RESET' });
+
+
+// DOM elements
+const counterDisplay = document.getElementById('counter');
+const incrementButton = document.getElementById('increment');
+const decrementButton = document.getElementById('decrement');
+const resetButton = document.getElementById('reset');
+
+// Update counter display
+function updateCounterDisplay() {
+    counterDisplay.innerText = `Count: ${store.getState().count}`;
+}
+
+// Subscribe the display update function to the store
+store.subscribe(updateCounterDisplay);
+
+// Event listeners for buttons
+incrementButton.addEventListener('click', () => {
+    store.dispatch({ type: 'ADD' });
+});
+
+decrementButton.addEventListener('click', () => {
+    store.dispatch({ type: 'SUBTRACT' });
+});
+
+resetButton.addEventListener('click', () => {
+    store.dispatch({ type: 'RESET' });
+});
